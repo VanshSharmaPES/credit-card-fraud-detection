@@ -1,2 +1,13 @@
-# credit-card-fraud-detection
-Credit card fraud detection: comparing XGBoost, Keras, fastai, TabNet and Lightning (ML with Business Data mini project)
+# Credit Card Fraud Detection
+
+## Project
+
+## Team and roles
+
+## Dataset
+
+## How to run
+
+## Results
+
+## Repo structure
