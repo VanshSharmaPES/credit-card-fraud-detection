@@ -82,12 +82,12 @@ python src/data.py
 |---|---|---|---|
 | `00_checks` | Sanity checks for `src/evaluate.py` | base | On `main` |
 | `01_eda` | Exploratory data analysis (train split only) | base | On `main` |
-| `02_xgboost` | XGBoost, SHAP, permutation importance | `xgboost.txt` | Open PR #5 |
+| `02_xgboost` | XGBoost, SHAP, permutation importance | `xgboost.txt` | On `main` |
 | `03_keras` | Keras model | `keras.txt` | On `main` |
 | `04_lightning` | Lightning (or Flash) model | `lightning.txt` | On `main` |
 | `05_fastai` | fastai model | `fastai.txt` | Pending |
 | `06_tabnet` | TabNet model and feature masks | `tabnet.txt` | Pending |
-| `07_imbalance` | Class weight vs SMOTE vs undersampling (XGBoost) | `xgboost.txt` | Open PR #6 |
+| `07_imbalance` | Class weight vs SMOTE vs undersampling (XGBoost) | `xgboost.txt` | On `main` |
 | `08_ensemble` | Average of the best models (runs `src/ensemble.py`) | base | On `main` |
 | `09_money` | Money-based threshold | base | Pending |
 | `10_comparison` | Final tables and charts (reads `results/` and `preds/` only) | base | Pending |
@@ -96,18 +96,46 @@ Notebooks `02`–`07` write `results/NAME.json`, `preds/NAME_val.csv`, `preds/NA
 
 ## Results
 
-_Available saved results are from an Apple Silicon ARM64 CPU run. Colab and GPU execution have not been verified. Full metric JSON files include thresholds, confusion counts, regression metrics, hardware, and notes._
+All numbers are on the test split, at the threshold chosen on validation, copied from `results/*.json`. Every run is on CPU (XGBoost: AMD Ryzen 5 5600H; Keras, Lightning: Apple Silicon ARM64). No GPU run was done. Each JSON file also has the threshold, confusion counts, hardware and notes.
 
 | Framework | Precision | Recall | F1 | PR-AUC | ROC-AUC | RMSE | MAE | R2 | Train (s) |
 |---|---|---|---|---|---|---|---|---|---|
-| XGBoost | 0.9620 | 0.8000 | 0.8736 | 0.8342 | 0.9754 | 0.0201 | 0.0007 | 0.7577 | 3.469 |
+| XGBoost | 0.9740 | 0.7895 | 0.8721 | 0.8382 | 0.9719 | 0.0203 | 0.0007 | 0.7529 | 5.538 |
 | Keras | 0.7957 | 0.7789 | 0.7872 | 0.7103 | 0.9628 | 0.1708 | 0.1186 | -16.4565 | 1.207 |
 | fastai | — | — | — | — | — | — | — | — | — |
 | TabNet | — | — | — | — | — | — | — | — | — |
 | Lightning | 0.8824 | 0.7895 | 0.8333 | 0.7576 | 0.9629 | 0.1072 | 0.0266 | -5.8776 | 9.991 |
 | Combined | 0.9615 | 0.7895 | 0.8671 | 0.8501 | 0.9685 | 0.0846 | 0.0487 | -3.2800 | — |
 
-The XGBoost row comes from Person 2's CPU run, which also fed the combined model. It will be replaced by the output of `02_xgboost` once PR #5 is run and merged, and the combined model will then be re-run.
+The XGBoost row is from `notebooks/02_xgboost.ipynb`. The Combined row was built from an earlier XGBoost run and will be updated when `08_ensemble` is re-run.
+
+### Imbalance experiment (XGBoost, `07_imbalance`)
+
+| Version | Train rows | `scale_pos_weight` | Precision | Recall | F1 | PR-AUC |
+|---|---|---|---|---|---|---|
+| (a) No handling | 170,235 | 1 | 0.9390 | 0.8105 | 0.8701 | 0.8451 |
+| (b) Class weight | 170,235 | 598.4190 | 0.9740 | 0.7895 | 0.8721 | 0.8382 |
+| (c) SMOTE (train only) | 339,902 | 1 | 0.9610 | 0.7789 | 0.8605 | 0.8572 |
+| (d) Random undersampling (train only) | 568 | 1 | 0.7917 | 0.8000 | 0.7958 | 0.7922 |
+
+Validation and test are never resampled. Files: `results/imbalance/`, `preds/imbalance/`.
+
+### Key figures
+
+| Figure | File |
+|---|---|
+| Class balance | [`figures/eda_class_balance.png`](figures/eda_class_balance.png) |
+| Amount by class | [`figures/eda_amount_by_class.png`](figures/eda_amount_by_class.png) |
+| Fraud rate by hour | [`figures/eda_hour_pattern.png`](figures/eda_hour_pattern.png) |
+| Correlation with `Class` | [`figures/eda_corr_with_class.png`](figures/eda_corr_with_class.png) |
+| Top fraud-linked features | [`figures/eda_top_features.png`](figures/eda_top_features.png) |
+| Feature correlation heatmap | [`figures/eda_heatmap.png`](figures/eda_heatmap.png) |
+| XGBoost gain importance | [`figures/xgb_feature_importance.png`](figures/xgb_feature_importance.png) |
+| XGBoost SHAP summary | [`figures/xgb_shap_summary.png`](figures/xgb_shap_summary.png) |
+| XGBoost SHAP, one caught fraud | [`figures/xgb_shap_case.png`](figures/xgb_shap_case.png) |
+| Imbalance comparison | [`figures/imbalance_comparison.png`](figures/imbalance_comparison.png) |
+
+![Imbalance comparison](figures/imbalance_comparison.png)
 
 Simplicity / Transparency / Efficacy scores: _pending (`notebooks/10_comparison.ipynb`)._
 
