@@ -19,14 +19,14 @@ Mini project for Machine Learning with Business Data.
 | Person | Name | Role |
 |---|---|---|
 | 1 | Vansh Sharma ([VanshSharmaPES](https://github.com/VanshSharmaPES)) | Data pipeline, EDA, XGBoost, imbalance experiment, README, decisions log |
-| 2 | Project contributor | `src/evaluate.py`, Keras, Lightning / Flash, combined model, PPT |
-| 3 | _name_ | Scoring rules, `src/cost.py`, fastai, TabNet, money-based threshold, comparison |
+| 2 | Vidhwath ([vidhwaths28](https://github.com/vidhwaths28)) | `src/evaluate.py`, Keras, Lightning / Flash, combined model, PPT |
+| 3 | [yakshithn91-afk](https://github.com/yakshithn91-afk) | Scoring rules, `src/cost.py`, fastai, TabNet, money-based threshold, comparison |
 
 ## Dataset
 
 - Credit card transactions by European cardholders over two days: 284,807 rows, 31 columns, 492 frauds.
 - `V1`–`V28` are PCA components with no published meaning. Only `Time`, `Amount` and `Class` are original columns.
-- Source: ULB Machine Learning Group, also on Kaggle as `mlg-ulb/creditcardfraud`. The course writeup links a copy at `media.geeksforgeeks.org`. `src/data.py` downloads an identical mirror and checks the row, column and fraud counts.
+- Source: ULB Machine Learning Group, also on Kaggle as `mlg-ulb/creditcardfraud`. The course writeup links a copy at `media.geeksforgeeks.org`. `src/data.py` downloads the same file from the TensorFlow mirror (`storage.googleapis.com/download.tensorflow.org/data/creditcard.csv`) and checks the row, column and fraud counts before doing anything else.
 - The raw file (about 144 MB) is never committed. `src/data.py` downloads it into `data/`, which is in `.gitignore`.
 
 **Preparation (`src/data.py`)**
@@ -52,7 +52,9 @@ Every decision and the reason for it is logged in `docs/decisions.md`.
 ### In Google Colab (optional reproduction)
 
 1. Runtime → Change runtime type → **T4 GPU**.
-2. Open the public repository notebook and run the setup cell. It clones the repo if needed, installs `requirements/base.txt` plus that framework's file, and runs `src/data.py`.
+2. Open a notebook from GitHub: File → Open notebook → GitHub tab → `VanshSharmaPES/credit-card-fraud-detection`.
+3. Run the setup cell. It clones the repo into `/content/credit-card-fraud-detection` if needed, installs `requirements/base.txt` plus that framework's file, and runs `src/data.py`.
+4. `01_eda` reads a GitHub token named `GH_TOKEN` from Colab Secrets (the key icon in the left sidebar). Add it there and allow notebook access. Never paste a token into a cell.
 
 ### On your own machine
 
@@ -76,19 +78,19 @@ python src/data.py
 
 ### Notebook order
 
-| Notebook | What it does | Needs |
-|---|---|---|
-| `00_checks` | Sanity checks for `src/evaluate.py` | base |
-| `01_eda` | Exploratory data analysis (train split only) | base |
-| `02_xgboost` | XGBoost, SHAP, permutation importance | `xgboost.txt` |
-| `03_keras` | Keras model | `keras.txt` |
-| `04_lightning` | Lightning (or Flash) model | `lightning.txt` |
-| `05_fastai` | fastai model | `fastai.txt` |
-| `06_tabnet` | TabNet model and feature masks | `tabnet.txt` |
-| `07_imbalance` | Class weight vs SMOTE vs undersampling (XGBoost) | `xgboost.txt` |
-| `08_ensemble` | Average of the best models | base |
-| `09_money` | Money-based threshold | base |
-| `10_comparison` | Final tables and charts (reads `results/` and `preds/` only) | base |
+| Notebook | What it does | Needs | Status |
+|---|---|---|---|
+| `00_checks` | Sanity checks for `src/evaluate.py` | base | On `main` |
+| `01_eda` | Exploratory data analysis (train split only) | base | On `main` |
+| `02_xgboost` | XGBoost, SHAP, permutation importance | `xgboost.txt` | Open PR #5 |
+| `03_keras` | Keras model | `keras.txt` | On `main` |
+| `04_lightning` | Lightning (or Flash) model | `lightning.txt` | On `main` |
+| `05_fastai` | fastai model | `fastai.txt` | Pending |
+| `06_tabnet` | TabNet model and feature masks | `tabnet.txt` | Pending |
+| `07_imbalance` | Class weight vs SMOTE vs undersampling (XGBoost) | `xgboost.txt` | Open PR #6 |
+| `08_ensemble` | Average of the best models (runs `src/ensemble.py`) | base | On `main` |
+| `09_money` | Money-based threshold | base | Pending |
+| `10_comparison` | Final tables and charts (reads `results/` and `preds/` only) | base | Pending |
 
 Notebooks `02`–`07` write `results/NAME.json`, `preds/NAME_val.csv`, `preds/NAME_test.csv` and a model in `models/`. `08`–`10` only read those files.
 
@@ -105,7 +107,9 @@ _Available saved results are from an Apple Silicon ARM64 CPU run. Colab and GPU 
 | Lightning | 0.8824 | 0.7895 | 0.8333 | 0.7576 | 0.9629 | 0.1072 | 0.0266 | -5.8776 | 9.991 |
 | Combined | 0.9615 | 0.7895 | 0.8671 | 0.8501 | 0.9685 | 0.0846 | 0.0487 | -3.2800 | — |
 
-Simplicity / Transparency / Efficacy scores: _see `notebooks/10_comparison.ipynb`_.
+The XGBoost row comes from Person 2's CPU run, which also fed the combined model. It will be replaced by the output of `02_xgboost` once PR #5 is run and merged, and the combined model will then be re-run.
+
+Simplicity / Transparency / Efficacy scores: _pending (`notebooks/10_comparison.ipynb`)._
 
 **Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`); plain PyTorch Lightning was used. Flash and Colab/GPU runs have not been verified.
 
@@ -118,13 +122,17 @@ credit-card-fraud-detection/
 ├── src/
 │   ├── data.py          # download, clean, split, scale; load_splits()
 │   ├── evaluate.py      # threshold, metrics, results/preds files, permutation importance
-│   └── cost.py          # money-based cost functions
+│   ├── model_keras.py   # Keras model definition
+│   ├── model_lightning.py  # Lightning model definition
+│   ├── ensemble.py      # combined model: averages the top models by validation PR-AUC
+│   └── cost.py          # money-based cost functions (pending)
 ├── notebooks/           # one notebook per task (see the table above)
 ├── results/             # one metrics JSON per model; imbalance/ for the experiment; perm_*.csv
 ├── preds/               # validation and test probabilities per model (row_id, y_true, y_prob)
 ├── models/              # saved trained models
 ├── figures/             # every chart used in the report and PPT
-├── docs/                # decisions log, scoring rules, EDA findings, simplicity notes, viva questions
+├── docs/                # decisions log, simplicity notes, Person 2 results (scoring rules, EDA findings, viva questions to come)
+├── output/              # presentation files
 ├── requirements/        # base.txt plus one file per framework
 └── data/                # created by src/data.py, never committed
 ```
