@@ -20,7 +20,7 @@ Mini project for Machine Learning with Business Data.
 |---|---|---|
 | 1 | Vansh Sharma ([VanshSharmaPES](https://github.com/VanshSharmaPES)) | Data pipeline, EDA, XGBoost, imbalance experiment, README, decisions log |
 | 2 | Vidhwath ([vidhwaths28](https://github.com/vidhwaths28)) | `src/evaluate.py`, Keras, Lightning / Flash, combined model, PPT |
-| 3 | _name_ | Scoring rules, `src/cost.py`, fastai, TabNet, money-based threshold, comparison |
+| 3 | [yakshithn91-afk](https://github.com/yakshithn91-afk) | Scoring rules, `src/cost.py`, fastai, TabNet, money-based threshold, comparison |
 
 ## Dataset
 
