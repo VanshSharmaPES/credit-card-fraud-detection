@@ -1,0 +1,20 @@
+{
+  "framework": "imb_d_undersample",
+  "threshold": 0.9851574897766113,
+  "precision": 0.7916666666666666,
+  "recall": 0.8,
+  "f1": 0.7958115183246073,
+  "pr_auc": 0.7922108943058543,
+  "roc_auc": 0.9797217311163736,
+  "tn": 56631,
+  "fp": 20,
+  "fn": 19,
+  "tp": 76,
+  "rmse": 0.15014059764341076,
+  "mae": 0.06423118374719194,
+  "r2": -12.48762871557867,
+  "train_seconds": 0.9750414590000673,
+  "predict_seconds": 0.014304157999958989,
+  "hardware": "CPU: AMD Ryzen 5 5600H with Radeon Graphics (12 threads)",
+  "notes": "(d) Random undersampling; train rows=568; scale_pos_weight=1.0000; best_iteration=108"
+}
