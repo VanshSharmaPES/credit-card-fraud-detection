@@ -1,0 +1,21 @@
+{
+  "ranking": [
+    [
+      "xgboost",
+      0.7932912973922174
+    ],
+    [
+      "lightning",
+      0.7131950399712177
+    ],
+    [
+      "keras",
+      0.6691895173438319
+    ]
+  ],
+  "selected": [
+    "xgboost",
+    "lightning",
+    "keras"
+  ]
+}
