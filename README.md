@@ -100,7 +100,7 @@ All numbers are on the test split, at the threshold chosen on validation, copied
 
 | Framework | Precision | Recall | F1 | PR-AUC | ROC-AUC | RMSE | MAE | R2 | Train (s) |
 |---|---|---|---|---|---|---|---|---|---|
-| XGBoost | 0.9740 | 0.7895 | 0.8721 | 0.8382 | 0.9719 | 0.0203 | 0.0007 | 0.7529 | 5.538 |
+| XGBoost | 0.9740 | 0.7895 | 0.8721 | 0.8382 | 0.9719 | 0.0203 | 0.0007 | 0.7529 | 6.676 |
 | Keras | 0.7957 | 0.7789 | 0.7872 | 0.7103 | 0.9628 | 0.1708 | 0.1186 | -16.4565 | 1.207 |
 | fastai | — | — | — | — | — | — | — | — | — |
 | TabNet | — | — | — | — | — | — | — | — | — |
