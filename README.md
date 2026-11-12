@@ -18,8 +18,8 @@ Mini project for Machine Learning with Business Data.
 
 | Person | Name | Role |
 |---|---|---|
-| 1 | _name_ ([VanshSharmaPES](https://github.com/VanshSharmaPES)) | Data pipeline, EDA, XGBoost, imbalance experiment, README, decisions log |
-| 2 | _name_ | `src/evaluate.py`, Keras, Lightning / Flash, combined model, PPT |
+| 1 | Vansh Sharma ([VanshSharmaPES](https://github.com/VanshSharmaPES)) | Data pipeline, EDA, XGBoost, imbalance experiment, README, decisions log |
+| 2 | Project contributor | `src/evaluate.py`, Keras, Lightning / Flash, combined model, PPT |
 | 3 | _name_ | Scoring rules, `src/cost.py`, fastai, TabNet, money-based threshold, comparison |
 
 ## Dataset
@@ -49,11 +49,10 @@ Every decision and the reason for it is logged in `docs/decisions.md`.
 
 ## How to run
 
-### In Google Colab (how the results were produced)
+### In Google Colab (optional reproduction)
 
 1. Runtime → Change runtime type → **T4 GPU**.
-2. The repo is private, so add a GitHub token (classic, `repo` scope) to Colab Secrets (key icon) as `GH_TOKEN`, with notebook access on.
-3. Open any notebook from `notebooks/` and run all. The first cell clones the repo, installs `requirements/base.txt` plus that framework's file, and runs `src/data.py`.
+2. Open the public repository notebook and run the setup cell. It clones the repo if needed, installs `requirements/base.txt` plus that framework's file, and runs `src/data.py`.
 
 ### On your own machine
 
@@ -95,22 +94,22 @@ Notebooks `02`–`07` write `results/NAME.json`, `preds/NAME_val.csv`, `preds/NA
 
 ## Results
 
-_Filled in from `results/` after the model freeze. Every number is copied from the results files._
+_Available saved results are from an Apple Silicon ARM64 CPU run. Colab and GPU execution have not been verified. Full metric JSON files include thresholds, confusion counts, regression metrics, hardware, and notes._
 
 | Framework | Precision | Recall | F1 | PR-AUC | ROC-AUC | RMSE | MAE | R2 | Train (s) |
 |---|---|---|---|---|---|---|---|---|---|
-| XGBoost | | | | | | | | | |
-| Keras | | | | | | | | | |
-| fastai | | | | | | | | | |
-| TabNet | | | | | | | | | |
-| Lightning | | | | | | | | | |
-| Combined | | | | | | | | | |
+| XGBoost | 0.9620 | 0.8000 | 0.8736 | 0.8342 | 0.9754 | 0.0201 | 0.0007 | 0.7577 | 3.469 |
+| Keras | 0.7957 | 0.7789 | 0.7872 | 0.7103 | 0.9628 | 0.1708 | 0.1186 | -16.4565 | 1.207 |
+| fastai | — | — | — | — | — | — | — | — | — |
+| TabNet | — | — | — | — | — | — | — | — | — |
+| Lightning | 0.8824 | 0.7895 | 0.8333 | 0.7576 | 0.9629 | 0.1072 | 0.0266 | -5.8776 | 9.991 |
+| Combined | 0.9615 | 0.7895 | 0.8671 | 0.8501 | 0.9685 | 0.0846 | 0.0487 | -3.2800 | — |
 
 Simplicity / Transparency / Efficacy scores: _see `notebooks/10_comparison.ipynb`_.
 
-**Lightning Flash:** _outcome of the install test (Step 11), and which route was used._
+**Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`); plain PyTorch Lightning was used. Flash and Colab/GPU runs have not been verified.
 
-Key figures: _to be added from `figures/`._
+Person 2 results and caveats: [`docs/person2_results.md`](docs/person2_results.md). Presentation: [`output/Person2_Results_Presentation.pptx`](output/Person2_Results_Presentation.pptx). fastai and TabNet results are pending their assigned work.
 
 ## Repo structure
 
