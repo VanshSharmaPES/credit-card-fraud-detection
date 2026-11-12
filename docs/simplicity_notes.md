@@ -23,5 +23,5 @@
   | `random_state` | 0 | 42 |
 
   `max_depth=6` is set in the plan but equals the default, so it is not counted. `device` is picked automatically (`cuda` if a GPU is present); the official run used the default `cpu`, so it is not counted either.
-- **Training time (CPU, AMD Ryzen 5 5600H, 12 threads):** 5.54 s (265 trees after early stopping); test prediction 0.041 s for 56,746 rows. From `results/xgboost.json`.
+- **Training time (CPU, AMD Ryzen 5 5600H, 12 threads):** 6.68 s (265 trees after early stopping); test prediction 0.047 s for 56,746 rows. From `results/xgboost.json`.
 - **Data format:** takes the pandas DataFrames from `load_splits()` directly. No conversion needed.

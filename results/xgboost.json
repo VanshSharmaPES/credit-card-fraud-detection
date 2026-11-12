@@ -13,8 +13,8 @@
   "rmse": 0.02032329432979654,
   "mae": 0.00073706793093752,
   "r2": 0.7528688242369768,
-  "train_seconds": 5.538488876999963,
-  "predict_seconds": 0.0412397879999844,
+  "train_seconds": 6.675929003999045,
+  "predict_seconds": 0.04676423399905616,
   "hardware": "CPU: AMD Ryzen 5 5600H with Radeon Graphics (12 threads)",
   "notes": "best_iteration=265, scale_pos_weight=598.4190"
 }
