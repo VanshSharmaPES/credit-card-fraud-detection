@@ -9,9 +9,9 @@
 ## XGBoost (Person 1)
 
 - **Notebook:** `notebooks/02_xgboost.ipynb`
-- **Install:** `pip install -r requirements/xgboost.txt` (one package). Install problems on Colab: _fill in after the T4 run_.
+- **Install:** `pip install -r requirements/xgboost.txt` (one package). Install problems: none (CPU, Python 3.13, `xgboost==3.4.1`, one wheel, no build step).
 - **Lines of code** (train and predict cells, no comments or blank lines): train 8, predict 5, total 13.
-- **Settings changed from the default (7):**
+- **Settings changed from the default (6):**
 
   | Setting | Default | Used |
   |---|---|---|
@@ -20,9 +20,8 @@
   | `scale_pos_weight` | 1 | 598.4190 (class weight from `data.py`) |
   | `eval_metric` | `logloss` | `aucpr` |
   | `early_stopping_rounds` | none | 50 |
-  | `device` | `cpu` | `cuda` |
   | `random_state` | 0 | 42 |
 
-  `max_depth=6` is set in the plan but equals the default, so it is not counted.
-- **Training time (Colab T4):** _copy `train_seconds` from `results/xgboost.json`_.
+  `max_depth=6` is set in the plan but equals the default, so it is not counted. `device` is picked automatically (`cuda` if a GPU is present); the official run used the default `cpu`, so it is not counted either.
+- **Training time (CPU, AMD Ryzen 5 5600H, 12 threads):** 5.54 s (265 trees after early stopping); test prediction 0.041 s for 56,746 rows. From `results/xgboost.json`.
 - **Data format:** takes the pandas DataFrames from `load_splits()` directly. No conversion needed.
