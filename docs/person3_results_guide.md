@@ -1,38 +1,27 @@
-# Person 3 results and conclusion worksheet
+# Results and conclusion evidence guide
 
-This is a structure for the student to complete, not report prose. Write all interpretation in your own words, and copy every number from the current `results/` files and generated figures.
+The project result write-up is drafted in docs/person3_report_draft.md. This guide identifies the evidence behind it and the checks to do before submitting or presenting.
 
-## Results evidence to assemble
+## Source files
 
-1. **Main comparison:** use `figures/table_main.png` and the saved result JSON files. Include precision, recall, F1, PR-AUC, ROC-AUC, threshold, training time and prediction time. State that classification thresholds were chosen on validation data.
-2. **Probability errors:** use `figures/table_regression.png` for RMSE, MAE and R². Explain their role in this classification project in your own words.
-3. **Ranking and errors:** use `figures/pr_curves_all.png` and `figures/confusion_matrices.png`. Note the test fraud count and treat PR-AUC gaps below 0.02 as ties.
-4. **Runtime:** use `figures/time_comparison.png`. State the hardware recorded per model; avoid implying timings from different machines are directly comparable.
-5. **Framework scores:** use the draft score table from `notebooks/10_comparison.ipynb` only after the team has approved the rubric and evidence.
-6. **Money-based threshold:** use `results/money_thresholds.csv`, `figures/money_cost_curve.png` and `figures/money_saved_all.png`. Compare validation-selected cost thresholds for fees 5, 10 and 25 with the F1 threshold at fee 10. Report caught frauds, false alarms, review cost, total cost and saved amount.
-7. **Combined model freshness:** ask Person 2 to rerun `08_ensemble` before finalizing. The currently committed `results/ensemble_members.json` predates the fastai and TabNet predictions; this Person 3 work leaves the existing ensemble files untouched.
+- Main metrics and test confusion counts: results/*.json and figures/table_main.png.
+- Probability errors: figures/table_regression.png and results/model_comparison_regression.csv.
+- Ranking and thresholded errors: figures/pr_curves_all.png and figures/confusion_matrices.png.
+- Recorded runtime: result JSON files and figures/time_comparison.png. Runs used different CPU environments, so do not describe timing differences as a controlled benchmark.
+- Draft rubric values and evidence: results/model_scores_draft.csv and docs/scoring_rules.md.
+- Cost thresholds and fee sensitivity: results/money_thresholds.csv, results/money_f1_vs_cost.csv, figures/money_cost_curve.png and figures/money_saved_all.png.
+- Current ensemble membership: results/ensemble_members.json. It selects XGBoost, Lightning and fastai based on validation PR-AUC.
 
-## Student-authored Results prompts
+## Interpretation checkpoints
 
-- Which models lead on ranking quality and on thresholded precision/recall?
-- Which pair of PR-AUC results is close enough to call a tie?
-- What do the confusion matrices add beyond the summary metrics?
-- How does the cost threshold change across the three assumed fees?
-- Does the cost-based choice agree with the F1-based choice at fee 10? Use the saved numbers.
-- Which framework scores are sensitive to subjective judgments, and what evidence supports the draft scores?
-- Does the combined model still use the top three available validation PR-AUC models after the new predictions were added?
+1. Report that the 56,746-row test split contains 95 frauds, and thresholds were selected on validation.
+2. Distinguish PR-AUC/ROC-AUC ranking quality from precision, recall and confusion counts at one threshold.
+3. Describe RMSE, MAE and R² as secondary probability-error metrics; avoid conflating them with classification quality.
+4. Treat framework rubric scores as drafts requiring team agreement; they are ordinal judgments.
+5. Disclose assumed review fees, full prevention of flagged fraud amounts, and that test savings are an evaluation result rather than a guaranteed business outcome.
+6. Explain that training times were recorded on different CPUs and are not directly comparable.
+7. Describe the dataset's two-day 2013 scope and anonymized PCA features; recommend a later time-based holdout.
 
-## Student-authored Conclusion prompts
+## Current headline values
 
-- State a recommendation for a clearly named objective, such as minimizing review workload or maximizing fraud recovery.
-- Tie that recommendation to one classification result and one cost result from the saved outputs.
-- State what the project does not establish: temporal generalization beyond two days, behavior beyond the European cardholder sample, or production operating costs beyond the assumed review fees.
-- Name one next experiment that would reduce a limitation, such as a later time-based holdout or a bank-specific review-cost estimate.
-
-## Evidence checks
-
-- [ ] Every table value matches a JSON result or generated cost table.
-- [ ] Test data was not used to select either the F1 or cost threshold.
-- [ ] Amounts and review fees use the same currency unit.
-- [ ] The assumed full prevention of a flagged fraud principal and review-fee values are disclosed.
-- [ ] Missing model runs are labeled pending; no values are filled by estimation.
+XGBoost is the top individual model by F1 (0.8721) and precision (0.9740). fastai catches the most individual test frauds (76 of 95). The refreshed ensemble's test PR-AUC is 0.8488 and its members are XGBoost, Lightning and fastai. At fee 10, the XGBoost F1 threshold saves 9,287.36 amount units versus 5,793.01 for its validation-cost threshold. These values come from saved project outputs and should be rechecked if any model is rerun.

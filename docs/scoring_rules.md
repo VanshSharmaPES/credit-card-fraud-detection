@@ -53,4 +53,4 @@ Show precision and recall at the validation-selected threshold beside the effica
 
 ## Evidence record
 
-For every framework, save the numeric score and the supporting measurements for all three dimensions. The comparison notebook stores fact fields, not a report-ready sentence. The student must write any report or presentation explanation in their own words.
+For every framework, save the numeric score and the supporting measurements for all three dimensions. The comparison notebook stores the facts behind each score. Explain the subjective choices and evidence clearly in the report and presentation; do not present the ordinal score as a measured quantity.

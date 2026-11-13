@@ -63,16 +63,16 @@ Every flagged row incurs the assumed review fee; every missed fraud incurs its `
 A higher fee makes each alert more expensive, so the validation cost calculation generally favors fewer alerts and a higher threshold. It can change the number of frauds caught as well as false alarms.
 
 ### How did the F1 and cost thresholds compare at fee 10?
-On test, the cost-selected threshold matched the F1 threshold for fastai, Keras, Lightning and TabNet. For XGBoost, F1 saved 9,287.36 amount units while the validation-cost threshold saved 5,793.01. The old ensemble F1 threshold saved 9,198.09 versus 7,184.17 for its validation-cost threshold. This is a test comparison, not a reason to tune on test.
+On test, the cost-selected threshold matched the F1 threshold for fastai, Keras, Lightning and TabNet. For XGBoost, F1 saved 9,287.36 amount units while the validation-cost threshold saved 5,793.01. The refreshed ensemble F1 threshold saved 9,267.36 versus 7,196.48 for its validation-cost threshold. This is a test comparison, not a reason to tune on test.
 
 ### How could an ensemble help or hurt?
-Averaging probabilities can reduce model-specific errors when the members make different mistakes. It can also smooth away useful high-confidence signals, and its value depends on the members and their calibration. The saved ensemble has not yet been refreshed after adding fastai and TabNet.
+Averaging probabilities can reduce model-specific errors when the members make different mistakes. It can also smooth away useful high-confidence signals, and its value depends on the members and their calibration. The refreshed ensemble averages XGBoost, Lightning and fastai, the three available models with highest validation PR-AUC. Averaging can smooth member-specific errors, but it does not guarantee better results on every metric.
 
 ### What are key limitations and how could generalization be tested better?
 The dataset covers two days in 2013, comes from European cardholders, and uses anonymized PCA features. A later time-based holdout would better measure performance under temporal drift; evaluation on a bank-specific sample would test population and operating-cost fit.
 
 ### Which model would you recommend to a bank?
-For the current saved individual results, XGBoost is a defensible choice when high precision and low false-alarm workload matter: it had precision 0.9740 and two false alarms while catching 75 test frauds. If catching the maximum number at the selected threshold matters more, fastai caught 76 with 10 false alarms. The final choice depends on the bank’s measured missed-fraud and review costs; the combined model needs refreshing first.
+For the current saved individual results, XGBoost is a defensible choice when high precision and low false-alarm workload matter: it had precision 0.9740 and two false alarms while catching 75 test frauds. If catching the maximum number at the selected threshold matters more, fastai caught 76 with 10 false alarms. The final choice depends on the bank’s measured missed-fraud and review costs; the refreshed combined model has PR-AUC 0.8488 and F1 0.8621, below XGBoost's F1 but above each individual model's PR-AUC.
 
 ### What is the project contribution, and what is not established?
 The project compares five frameworks on one shared split and adds a validation-selected threshold based on an explicit review-fee and missed-amount cost model. It does not establish production readiness, performance on future transaction periods, or bank-specific economics.
