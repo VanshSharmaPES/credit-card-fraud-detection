@@ -1,0 +1,20 @@
+{
+  "framework": "tabnet",
+  "threshold": 0.9998419284820557,
+  "precision": 0.7976190476190477,
+  "recall": 0.7052631578947368,
+  "f1": 0.7486033519553073,
+  "pr_auc": 0.6833048675451558,
+  "roc_auc": 0.9763618238726682,
+  "tn": 56634,
+  "fp": 17,
+  "fn": 28,
+  "tp": 67,
+  "rmse": 0.1769197953598008,
+  "mae": 0.0899250370859236,
+  "r2": -17.728033539747614,
+  "train_seconds": 45.54888159999973,
+  "predict_seconds": 0.7191312999930233,
+  "hardware": "CPU: Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "notes": "TabNetClassifier n_d=8, n_a=8, n_steps=3; weighted cross entropy; early stopping on validation ROC-AUC (the library does not provide PR-AUC as a built-in evaluation metric)."
+}
