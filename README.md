@@ -85,12 +85,12 @@ python src/data.py
 | `02_xgboost` | XGBoost, SHAP, permutation importance | `xgboost.txt` | On `main` |
 | `03_keras` | Keras model | `keras.txt` | On `main` |
 | `04_lightning` | Lightning (or Flash) model | `lightning.txt` | On `main` |
-| `05_fastai` | fastai model | `fastai.txt` | Complete on `p3-tabular` |
-| `06_tabnet` | TabNet model and feature masks | `tabnet.txt` | Complete on `p3-tabular` |
+| `05_fastai` | fastai model | `fastai.txt` | On `main` |
+| `06_tabnet` | TabNet model and feature masks | `tabnet.txt` | On `main` |
 | `07_imbalance` | Class weight vs SMOTE vs undersampling (XGBoost) | `xgboost.txt` | On `main` |
 | `08_ensemble` | Average of the best models (runs `src/ensemble.py`) | base | On `main` |
-| `09_money` | Money-based threshold | base | Complete on `p3-tabular` |
-| `10_comparison` | Final tables and charts (reads `results/` and `preds/` only) | base | Complete on `p3-tabular` |
+| `09_money` | Money-based threshold | base | On `main` |
+| `10_comparison` | Final tables and charts (reads `results/` and `preds/` only) | base | On `main` |
 
 Notebooks `02`–`07` write `results/NAME.json`, `preds/NAME_val.csv`, `preds/NAME_test.csv` and a model in `models/`. `08`–`10` only read those files.
 
