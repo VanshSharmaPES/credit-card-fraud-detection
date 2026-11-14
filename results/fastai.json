@@ -1,0 +1,20 @@
+{
+  "framework": "fastai",
+  "threshold": 0.9978579878807068,
+  "precision": 0.8837209302325582,
+  "recall": 0.8,
+  "f1": 0.8397790055248618,
+  "pr_auc": 0.7377376034319689,
+  "roc_auc": 0.9612328114243349,
+  "tn": 56641,
+  "fp": 10,
+  "fn": 19,
+  "tp": 76,
+  "rmse": 0.08688500297236197,
+  "mae": 0.02690460463904442,
+  "r2": -3.516780255719681,
+  "train_seconds": 6.024937199996202,
+  "predict_seconds": 0.14224810000450816,
+  "hardware": "CPU: Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "notes": "fastai TabularPandas with the shared train/validation rows; weighted CrossEntropyLossFlat; layers [64, 32]; lr_find valley; up to 30 one-cycle epochs with patience 5. Training time includes lr_find."
+}

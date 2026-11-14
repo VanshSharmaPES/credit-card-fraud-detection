@@ -10,7 +10,7 @@ Detects fraudulent card transactions in a highly imbalanced dataset (about 0.17%
 - PyTorch with TabNet
 - PyTorch with Lightning Flash (or plain Lightning if Flash does not install; see below)
 
-Every model outputs a fraud probability. The main metrics are precision, recall, F1 and PR-AUC at a threshold chosen on the validation split. RMSE, MAE and R2 are also computed between the probability and the 0/1 label. The frameworks are scored on Simplicity, Transparency and Efficacy using rules written before any results existed (`docs/scoring_rules.md`).
+Every model outputs a fraud probability. The main metrics are precision, recall, F1 and PR-AUC at a threshold chosen on the validation split. RMSE, MAE and R2 are also computed between the probability and the 0/1 label. The frameworks are scored on Simplicity, Transparency and Efficacy using a documented rubric (`docs/scoring_rules.md`). Scores remain drafts for team review because the rubric was written after some model results were available.
 
 Mini project for Machine Learning with Business Data.
 
@@ -85,12 +85,12 @@ python src/data.py
 | `02_xgboost` | XGBoost, SHAP, permutation importance | `xgboost.txt` | On `main` |
 | `03_keras` | Keras model | `keras.txt` | On `main` |
 | `04_lightning` | Lightning (or Flash) model | `lightning.txt` | On `main` |
-| `05_fastai` | fastai model | `fastai.txt` | Pending |
-| `06_tabnet` | TabNet model and feature masks | `tabnet.txt` | Pending |
+| `05_fastai` | fastai model | `fastai.txt` | Complete on `p3-tabular` |
+| `06_tabnet` | TabNet model and feature masks | `tabnet.txt` | Complete on `p3-tabular` |
 | `07_imbalance` | Class weight vs SMOTE vs undersampling (XGBoost) | `xgboost.txt` | On `main` |
 | `08_ensemble` | Average of the best models (runs `src/ensemble.py`) | base | On `main` |
-| `09_money` | Money-based threshold | base | Pending |
-| `10_comparison` | Final tables and charts (reads `results/` and `preds/` only) | base | Pending |
+| `09_money` | Money-based threshold | base | Complete on `p3-tabular` |
+| `10_comparison` | Final tables and charts (reads `results/` and `preds/` only) | base | Complete on `p3-tabular` |
 
 Notebooks `02`–`07` write `results/NAME.json`, `preds/NAME_val.csv`, `preds/NAME_test.csv` and a model in `models/`. `08`–`10` only read those files.
 
@@ -102,12 +102,12 @@ All numbers are on the test split, at the threshold chosen on validation, copied
 |---|---|---|---|---|---|---|---|---|---|
 | XGBoost | 0.9740 | 0.7895 | 0.8721 | 0.8382 | 0.9719 | 0.0203 | 0.0007 | 0.7529 | 6.676 |
 | Keras | 0.7957 | 0.7789 | 0.7872 | 0.7103 | 0.9628 | 0.1708 | 0.1186 | -16.4565 | 1.207 |
-| fastai | — | — | — | — | — | — | — | — | — |
-| TabNet | — | — | — | — | — | — | — | — | — |
+| fastai | 0.8837 | 0.8000 | 0.8398 | 0.7377 | 0.9612 | 0.0869 | 0.0269 | -3.5168 | 6.025 |
+| TabNet | 0.7976 | 0.7053 | 0.7486 | 0.6833 | 0.9764 | 0.1769 | 0.0899 | -17.7280 | 45.549 |
 | Lightning | 0.8824 | 0.7895 | 0.8333 | 0.7576 | 0.9629 | 0.1072 | 0.0266 | -5.8776 | 9.991 |
-| Combined | 0.9615 | 0.7895 | 0.8671 | 0.8501 | 0.9685 | 0.0846 | 0.0487 | -3.2800 | — |
+| Combined (XGBoost + Lightning + fastai) | 0.9494 | 0.7895 | 0.8621 | 0.8488 | 0.9662 | 0.0631 | 0.0181 | -1.3815 | — |
 
-The XGBoost row is from `notebooks/02_xgboost.ipynb`. The Combined row was built from an earlier XGBoost run and will be updated when `08_ensemble` is re-run.
+Thresholds were selected on validation; these are held-out test results. The combined model was refreshed after fastai and TabNet predictions became available. Its three members are selected by validation PR-AUC; see `results/ensemble_members.json`. Training and prediction times are recorded on different CPU environments and are not directly comparable.
 
 ### Imbalance experiment (XGBoost, `07_imbalance`)
 
@@ -137,11 +137,11 @@ Validation and test are never resampled. Files: `results/imbalance/`, `preds/imb
 
 ![Imbalance comparison](figures/imbalance_comparison.png)
 
-Simplicity / Transparency / Efficacy scores: _pending (`notebooks/10_comparison.ipynb`)._
+Simplicity / Transparency / Efficacy scores: draft values are in `results/model_scores_draft.csv`; review the rubric and assumptions as a team before treating them as final.
 
 **Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`); plain PyTorch Lightning was used. Flash and Colab/GPU runs have not been verified.
 
-Person 2 results and caveats: [`docs/person2_results.md`](docs/person2_results.md). Presentation: [`output/Person2_Results_Presentation.pptx`](output/Person2_Results_Presentation.pptx). fastai and TabNet results are pending their assigned work.
+Person 2's original results and caveats are retained as a historical record in [`docs/person2_results.md`](docs/person2_results.md). Current ensemble metrics in `results/ensemble.json` reflect the refreshed ensemble. Presentation support and updated figures are in `docs/person3_presentation_notes.md` and `figures/`.
 
 ## Repo structure
 
@@ -153,13 +153,13 @@ credit-card-fraud-detection/
 │   ├── model_keras.py   # Keras model definition
 │   ├── model_lightning.py  # Lightning model definition
 │   ├── ensemble.py      # combined model: averages the top models by validation PR-AUC
-│   └── cost.py          # money-based cost functions (pending)
+│   └── cost.py          # money-based cost functions
 ├── notebooks/           # one notebook per task (see the table above)
 ├── results/             # one metrics JSON per model; imbalance/ for the experiment; perm_*.csv
 ├── preds/               # validation and test probabilities per model (row_id, y_true, y_prob)
 ├── models/              # saved trained models
 ├── figures/             # every chart used in the report and PPT
-├── docs/                # decisions log, simplicity notes, Person 2 results (scoring rules, EDA findings, viva questions to come)
+├── docs/                # decisions, scoring rubric, results, presentation support and viva preparation
 ├── output/              # presentation files
 ├── requirements/        # base.txt plus one file per framework
 └── data/                # created by src/data.py, never committed

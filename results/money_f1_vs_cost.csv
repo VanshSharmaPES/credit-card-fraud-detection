@@ -1,0 +1,7 @@
+model,f1_threshold_money_saved,cost_threshold_money_saved,cost_minus_f1_savings,higher_test_savings
+ensemble,9267.36,7196.48,-2070.880000000001,F1 threshold
+fastai,9626.34,9626.34,0.0,F1 threshold
+keras,6082.16,6082.16,0.0,F1 threshold
+lightning,9624.949999999999,9624.949999999999,0.0,F1 threshold
+tabnet,8313.510000000002,8313.510000000002,0.0,F1 threshold
+xgboost,9287.36,5793.010000000001,-3494.3499999999995,F1 threshold
