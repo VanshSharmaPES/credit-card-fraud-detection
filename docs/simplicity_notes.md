@@ -4,7 +4,7 @@
 - Lightning: same dense shape and validation protocol, using weighted BCE-with-logits and early stopping.
 - Flash was attempted locally but installation stopped with `BackendUnavailable: Cannot import setuptools.build_meta`; plain PyTorch Lightning is the completed route.
 - Local runtime measurements are ARM64 CPU measurements. Colab and GPU execution were not verified.
-- The combined model is an arithmetic mean of XGBoost, Lightning, and Keras probabilities. Member choice is based on validation PR-AUC only.
+- The current combined model is an arithmetic mean of XGBoost, Lightning, and fastai probabilities. Member choice is based on validation PR-AUC only.
 
 ## XGBoost (Person 1)
 
@@ -23,5 +23,5 @@
   | `random_state` | 0 | 42 |
 
   `max_depth=6` is set in the plan but equals the default, so it is not counted. `device` is picked automatically (`cuda` if a GPU is present); the official run used the default `cpu`, so it is not counted either.
-- **Training time (CPU, AMD Ryzen 5 5600H, 12 threads):** 6.68 s (265 trees after early stopping); test prediction 0.047 s for 56,746 rows. From `results/xgboost.json`.
+- **Training time (CPU, AMD Ryzen 5 5600H, 12 threads):** 6.68 s (best iteration 265, so predictions use 266 trees); test prediction 0.047 s for 56,746 rows. From `results/xgboost.json`.
 - **Data format:** takes the pandas DataFrames from `load_splits()` directly. No conversion needed.
