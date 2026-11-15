@@ -1,0 +1,17 @@
+# EDA findings
+
+Source: the saved output of `notebooks/01_eda.ipynb`. All findings below describe the training split after exact duplicates were removed.
+
+<!-- Write 5 to 8 findings in your own words (course rule: no AI-generated content). One short paragraph each, naming the chart it comes from. -->
+
+1. **Class balance (`eda_class_balance.png`).** The training split contains 169,951 normal transactions and 284 frauds, so fraud accounts for only about 0.17% of its 170,235 rows. Predicting every transaction as normal would give about 99.83% accuracy while detecting no fraud. This makes accuracy alone misleading; the evaluation also needs precision, recall, F1 and PR-AUC.
+
+2. **Transaction amounts (`eda_amount_by_class.png`).** The median amount is lower for fraud than for normal transactions: 9.17 compared with 22.00. However, the mean is higher for fraud: 111.42 compared with 88.27. This difference between the medians and means shows why a typical transaction cannot be described by the mean alone. Large amounts also occur among normal transactions: the maximum is 18,910.00 for normal transactions and 1,504.93 for fraud. The chart uses a logarithmic amount axis and excludes the 12 fraud and 1,056 normal transactions with zero amount; the summary statistics include them.
+
+3. **Hourly pattern (`eda_hour_pattern.png`).** The largest observed fraud rates occur in hour bin 2, with 26 frauds out of 2,002 transactions (1.30%), and bin 4, with 13 out of 1,329 (0.98%). These rates are based on small fraud counts, so they should be treated cautiously. Bin 11 contains the most frauds, 37, but its rate is lower at 0.37% because it contains 10,029 transactions. Here, `Hour = (Time // 3600) % 24` measures hours from the first transaction and wraps every 24 hours. These bins are not known clock times.
+
+4. **Correlation with fraud (`eda_corr_with_class.png`).** V17 and V14 have the strongest absolute Pearson correlations with `Class`, at approximately -0.3178 and -0.3066, followed by V12 at -0.2577. The strongest positive correlations are V11 at about +0.1535 and V4 at +0.1321. By comparison, the correlations for `log1p(Amount)` and `Hour` are close to zero, at -0.0083 and -0.0152. These values measure linear association only; a small correlation does not establish that a feature is useless to a model that can learn nonlinear patterns or interactions.
+
+5. **Distributions of the top features (`eda_top_features.png`).** Fraud transactions tend to have lower values than normal transactions for the six features shown: V17, V14, V12, V10, V3 and V16. For example, the median V14 value is -6.79 for fraud and 0.05 for normal transactions; for V17, the medians are -5.46 and -0.06. The distribution plots reveal class separation that the correlation coefficients alone do not fully describe, although the distributions still overlap. Since V1–V28 are anonymized PCA components, these patterns cannot be assigned specific transaction meanings.
+
+6. **Relationships between features (`eda_heatmap.png`).** The V features have small pairwise linear correlations in the training split: the largest absolute correlation is about 0.047 and the median is about 0.002. Larger associations appear when the other model features are included, especially V2 with `log1p(Amount)` at -0.448 and V12 with `Hour` at +0.352. The low correlations among V features do not prove that they are independent, because Pearson correlation does not capture every kind of relationship.
