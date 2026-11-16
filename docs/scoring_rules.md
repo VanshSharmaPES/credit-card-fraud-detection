@@ -2,9 +2,9 @@
 
 ## Status
 
-This is a **draft for team approval**. Results for XGBoost, Keras, Lightning and the ensemble were already present in the repository when this file was added, so the scores cannot honestly be described as preregistered. Keep the original rubric fixed after the team agrees; record any disagreement and its reason.
+The team approved this rubric and the existing scores on **16 November 2026**, as confirmed by Vansh Sharma. Results for XGBoost, Keras, Lightning and the ensemble were already present in the repository when this file was added, so the scores cannot honestly be described as preregistered. Keep the original rubric fixed after the team agrees; record any disagreement and its reason.
 
-Scores run from 1 (lowest) to 5 (highest). Report the numeric score with the evidence fields below. The comparison notebook calculates draft scores from saved artifacts; the team must review and agree them before using them in the report or presentation.
+Scores run from 1 (lowest) to 5 (highest). Report the numeric score with the evidence fields below. The comparison notebook records the approved scores and supporting saved-artifact evidence. Changes to the rubric or subjective ratings require a new decision-log entry.
 
 ## Simplicity
 

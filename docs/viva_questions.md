@@ -51,7 +51,7 @@ A SHAP value attributes part of one model prediction to a feature relative to a 
 For our XGBoost explanation, the baseline plus the SHAP contributions gives log-odds, not probability. Applying the logistic function converts that sum to a probability. The example is validation row 541, a correctly caught fraud with probability 0.9999 at threshold 0.9394. The summary uses 2,000 validation rows containing only three frauds, so it is not a survey of all fraud cases.
 
 ### How were the three framework scores made?
-Simplicity uses install effort, training/prediction code size and configuration; Transparency uses available explanation methods; Efficacy uses the test PR-AUC gap from the best saved model. The current scores are drafts because the scoring file was added after baseline results already existed and still needs team agreement.
+Simplicity uses install effort, training/prediction code size and configuration; Transparency uses available explanation methods; Efficacy uses the test PR-AUC gap from the best saved model. The team approved the current scores on 16 November 2026. The rubric was added after baseline results existed, so these are retrospective judgments, not preregistered measurements.
 
 ### Why limit tuning, and what could more tuning change?
 The project aimed for a manageable framework comparison under time limits rather than an exhaustive search. Learning rates, architecture, class weighting, early stopping and threshold choices can change both metrics and ranking. A fair follow-up would define the search budget in advance and use validation data only for model selection.

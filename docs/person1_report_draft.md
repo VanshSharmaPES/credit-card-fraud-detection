@@ -124,7 +124,7 @@ Figure 7 explains the caught validation fraud with the lowest row_id, 541, whose
 
 ### Framework scores and cost analysis
 
-The draft XGBoost scores are Simplicity 4, Transparency 4 and Efficacy 5. Its training and prediction cells contain 13 nonblank, noncomment lines. Its test PR-AUC is 0.0106 below the best framework comparison result, within the rubric’s 0.02 band for Efficacy 5. The rubric was written after some results were available; subjective scores still require team agreement.
+The team-approved XGBoost scores are Simplicity 4, Transparency 4 and Efficacy 5. Its training and prediction cells contain 13 nonblank, noncomment lines. Its test PR-AUC is 0.0106 below the best framework comparison result, within the rubric’s 0.02 band for Efficacy 5. The team approved the scores on 16 November 2026. The rubric was written after some results were available, so these are retrospective judgments.
 
 At the assumed review fee of 10 amount units, XGBoost’s validation-selected F1 threshold saves 9,287.36 amount units on test, compared with 5,793.01 for its validation-cost threshold. Both thresholds were selected using validation data. The difference illustrates that optimizing validation cost does not guarantee lower cost on test; test outcomes must not be used to retune the threshold.
 
@@ -147,7 +147,7 @@ Negative R2 means the probability predictions have greater squared error than a 
 
 ### Framework score evidence
 
-Table 5 records the draft Simplicity (S), Transparency (T) and Efficacy (E) scores alongside precision and recall from Table 2. Scores remain subject to team agreement because the rubric was written after some results were available.
+Table 5 records the team-approved Simplicity (S), Transparency (T) and Efficacy (E) scores alongside precision and recall from Table 2. The team approved these scores on 16 November 2026; the rubric remains retrospective.
 
 | Model | S | T | E | Precision | Recall |
 | --- | --- | --- | --- | --- | --- |
@@ -157,7 +157,7 @@ Table 5 records the draft Simplicity (S), Transparency (T) and Efficacy (E) scor
 | TabNet | 3 | 5 | 2 | 0.7976 | 0.7053 |
 | Lightning | 2 | 2 | 3 | 0.8824 | 0.7895 |
 
-Table 5. Draft framework scores from results/model_scores_draft.csv.
+Table 5. Team-approved framework scores from results/model_scores.csv.
 
 Simplicity evidence records 13 training/prediction lines for XGBoost, 40 for Keras, 37 for fastai, 40 for TabNet and 65 for Lightning. XGBoost uses six non-default settings. Its gain importance and SHAP case support Transparency 4; the PR-AUC gap of 0.0106 supports Efficacy 5. TabNet supplies global importance and per-row masks. Keras, fastai and Lightning use aggregate permutation importance. Lightning also records the Flash installation failure. Timings come from different CPU environments and are not a controlled speed comparison.
 

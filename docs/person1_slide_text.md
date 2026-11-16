@@ -1,6 +1,6 @@
 # Person 1 slide text
 
-Draft content for Person 2 to place into the shared deck. Numbers come from the saved main-branch artifacts. Slide 4 is split into 4A and 4B as requested in tasks.md; Person 2 can adjust the final numbering.
+Source wording integrated into the final 18-slide team deck. Numbers come from the frozen published results. The final deck uses slides 2, 3, 4, 5, 13 and 14 for the sections below.
 
 ## Slide 2 — Problem and challenges
 

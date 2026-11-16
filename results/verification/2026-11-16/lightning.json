@@ -1,0 +1,20 @@
+{
+  "framework": "lightning",
+  "threshold": 0.9999673366546631,
+  "precision": 0.8837209302325582,
+  "recall": 0.8,
+  "f1": 0.8397790055248618,
+  "pr_auc": 0.7581131041239888,
+  "roc_auc": 0.9626652198270296,
+  "tn": 56641,
+  "fp": 10,
+  "fn": 19,
+  "tp": 76,
+  "rmse": 0.1241529425985869,
+  "mae": 0.03761293268658104,
+  "r2": -8.222599651699385,
+  "train_seconds": 38.83493901499969,
+  "predict_seconds": 0.10921093499928247,
+  "hardware": "CPU",
+  "notes": "Plain PyTorch Lightning used; Flash fallback: recorded install failure in docs/person2_results.md. Shared 64-32 network; class-weighted BCE; early stopping on validation PR-AUC."
+}

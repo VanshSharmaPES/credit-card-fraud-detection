@@ -1,11 +1,13 @@
-# Person 1 completion and verification record
+# Person 1 completion and verification record (historical PR #17 handoff)
+
+This file records the state at PR #17 and is retained for traceability. It is superseded by `docs/demo_readiness.md`, which covers the final team-wide notebook, report, presentation and demo work completed on 16 November 2026.
 
 Checked 16 November 2026. This evidence record supersedes the stale task checkboxes; it does not certify team meetings or personal rehearsal.
 
 ## Deliverables prepared
 
 - EDA findings: `docs/eda_findings.md`, merged through PR #8. The six findings were checked against recomputed training-split statistics. Hour means elapsed-hour bin, hourly rates have small fraud counts, and correlation is linear association only.
-- Report: native Google Doc created with Introduction, Methodology, EDA, Results and Conclusion. Repository copies are `output/credit_card_fraud_report_draft.pdf` and `.docx`; `docs/person1_report_draft.md` mirrors the text. The report has a title page, the corrected team names, six EDA figures, a SHAP case, six captioned tables, references and the repository link. It has no page numbers. No faculty template was requested.
+- Report at this handoff: native Google Doc created with Introduction, Methodology, EDA, Results and Conclusion. Page numbers were added in the later team-wide finalization recorded in `docs/demo_readiness.md`.
 - Results and Conclusion review: three comments in the Google Doc verify the imbalance metrics, SHAP output scale/sample, and limitations. No Person 2 review comments were present when checked; team review has not been certified.
 - Slides: `docs/person1_slide_text.md` contains slides 2, 3, 4A, 4B, the SHAP half of 11 and slide 12, including chart choices and speaker notes. It is ready for Person 2 to integrate into the team deck.
 - Viva: `docs/viva_questions.md` answers all eight Person 1 topics and includes the other frameworks' preparation notes. It now explains this project's SHAP log-odds scale and sample limitation explicitly.
@@ -21,7 +23,7 @@ The public Colab clone path no longer requires `GH_TOKEN` in these three noteboo
 
 `00_checks.ipynb` also received a repository-relative import path and was executed from the `notebooks/` directory. Its existing metric sanity assertions passed, and the success output is now saved.
 
-The report and Person 1 slide metric tables were checked against `results/*.json`, `results/imbalance/*.json`, `results/model_scores_draft.csv` and `results/money_f1_vs_cost.csv`. EDA values were independently recomputed from the training split. The twelve-page report export was rendered and visually checked.
+The report and Person 1 slide metric tables were checked against `results/*.json`, `results/imbalance/*.json`, `results/model_scores.csv` and `results/money_f1_vs_cost.csv`. EDA values were independently recomputed from the training split. The twelve-page report export was rendered and visually checked.
 
 ## XGBoost score review (P1-36)
 
