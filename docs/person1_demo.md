@@ -1,6 +1,6 @@
 # Person 1 demo and offline fallback
 
-Use this as a rehearsal script, then explain it naturally. The planned duration is three minutes; an actual timed rehearsal is still required.
+Use this as a rehearsal script, then explain it naturally. The planned duration is three minutes. The technical path was timed on 16 November 2026; see `demo_rehearsal.md`.
 
 ## Before starting
 
@@ -58,7 +58,7 @@ Show the top-feature chart. “The fraud and normal distributions differ for the
 - Rehearse with a timer and answer three randomly selected questions from `viva_questions.md`.
 - Two days before the demo, reread the report and everyone's viva answers.
 - The day before, run the setup cell and `src/data.py` in a fresh Colab runtime and compare the split summary. Person 1 notebooks use the public clone URL; no GitHub token is needed.
-- Open every notebook or its PDF and inspect the saved outputs. The completion record identifies notebooks that still need their owner's saved execution.
+- Open every notebook or its PDF and inspect the saved outputs. All eleven repository notebooks now contain saved execution counts and no saved error output.
 - Copy the report PDF, approved team presentation, notebook PDFs and the two charts to the laptop and a pen drive; open the copies to verify them.
 - Confirm the public repository opens while signed out. Charge the laptop and check the projector.
-- If faculty scope changes, use a branch, rerun affected notebooks, update report and slides, and prepare `v1.1`. No scope change has been reported.
+- If faculty scope changes, use a branch, rerun affected notebooks, update report and slides, and prepare a new patch release. No scope change has been reported.

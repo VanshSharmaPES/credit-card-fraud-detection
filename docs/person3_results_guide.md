@@ -8,7 +8,7 @@ The project result write-up is drafted in docs/person3_report_draft.md. This gui
 - Probability errors: figures/table_regression.png and results/model_comparison_regression.csv.
 - Ranking and thresholded errors: figures/pr_curves_all.png and figures/confusion_matrices.png.
 - Recorded runtime: result JSON files and figures/time_comparison.png. Runs used different CPU environments, so do not describe timing differences as a controlled benchmark.
-- Draft rubric values and evidence: results/model_scores_draft.csv and docs/scoring_rules.md.
+- Team-approved rubric values and evidence: results/model_scores.csv and docs/scoring_rules.md.
 - Cost thresholds and fee sensitivity: results/money_thresholds.csv, results/money_f1_vs_cost.csv, figures/money_cost_curve.png and figures/money_saved_all.png.
 - Current ensemble membership: results/ensemble_members.json. It selects XGBoost, Lightning and fastai based on validation PR-AUC.
 
@@ -17,7 +17,7 @@ The project result write-up is drafted in docs/person3_report_draft.md. This gui
 1. Report that the 56,746-row test split contains 95 frauds, and thresholds were selected on validation.
 2. Distinguish PR-AUC/ROC-AUC ranking quality from precision, recall and confusion counts at one threshold.
 3. Describe RMSE, MAE and R² as secondary probability-error metrics; avoid conflating them with classification quality.
-4. Treat framework rubric scores as drafts requiring team agreement; they are ordinal judgments.
+4. The team approved the framework rubric scores on 16 November 2026; they remain ordinal judgments.
 5. Disclose assumed review fees, full prevention of flagged fraud amounts, and that test savings are an evaluation result rather than a guaranteed business outcome.
 6. Explain that training times were recorded on different CPUs and are not directly comparable.
 7. Describe the dataset's two-day 2013 scope and anonymized PCA features; recommend a later time-based holdout.

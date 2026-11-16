@@ -37,7 +37,7 @@ The thresholds in both rows were selected on validation data. On this test sampl
 
 ## Framework score rubric
 
-The comparison notebook records draft Simplicity, Transparency and Efficacy scores with the supporting facts in results/model_scores_draft.csv. The rubric was written after several model results were already present, so the scores are not preregistered. The team should review the rubric and agree on any subjective ratings before presenting them as final. TabNet's feature importance and per-row masks are model explanations, not evidence of causal effects.
+The comparison notebook records team-approved Simplicity, Transparency and Efficacy scores with the supporting facts in results/model_scores.csv. The rubric was written after several model results were already present, so the scores are not preregistered. The team approved the ratings on 16 November 2026. TabNet's feature importance and per-row masks are model explanations, not evidence of causal effects.
 
 ## Conclusion and limitations
 

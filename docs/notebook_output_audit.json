@@ -1,98 +1,82 @@
 {
-  "00_checks.ipynb": {
-    "code_cells": 1,
-    "executed_cells": 1,
-    "outputs": 1,
-    "errors": 0,
-    "unexecuted_cells": []
-  },
-  "01_eda.ipynb": {
-    "code_cells": 11,
-    "executed_cells": 11,
-    "outputs": 26,
-    "errors": 0,
-    "unexecuted_cells": []
-  },
-  "02_xgboost.ipynb": {
-    "code_cells": 14,
-    "executed_cells": 14,
-    "outputs": 23,
-    "errors": 0,
-    "unexecuted_cells": []
-  },
-  "03_keras.ipynb": {
-    "code_cells": 4,
-    "executed_cells": 0,
-    "outputs": 0,
-    "errors": 0,
-    "unexecuted_cells": [
-      2,
-      3,
-      5,
-      7
-    ]
-  },
-  "04_lightning.ipynb": {
-    "code_cells": 5,
-    "executed_cells": 0,
-    "outputs": 0,
-    "errors": 0,
-    "unexecuted_cells": [
-      2,
-      3,
-      4,
-      6,
-      8
-    ]
-  },
-  "05_fastai.ipynb": {
-    "code_cells": 3,
-    "executed_cells": 2,
-    "outputs": 2,
-    "errors": 0,
-    "unexecuted_cells": [
-      2
-    ]
-  },
-  "06_tabnet.ipynb": {
-    "code_cells": 4,
-    "executed_cells": 3,
-    "outputs": 4,
-    "errors": 0,
-    "unexecuted_cells": [
-      2
-    ]
-  },
-  "07_imbalance.ipynb": {
-    "code_cells": 7,
-    "executed_cells": 7,
-    "outputs": 10,
-    "errors": 0,
-    "unexecuted_cells": []
-  },
-  "08_ensemble.ipynb": {
-    "code_cells": 1,
-    "executed_cells": 0,
-    "outputs": 0,
-    "errors": 0,
-    "unexecuted_cells": [
-      1
-    ]
-  },
-  "09_money.ipynb": {
-    "code_cells": 2,
-    "executed_cells": 1,
-    "outputs": 1,
-    "errors": 0,
-    "unexecuted_cells": [
-      2
-    ]
-  },
-  "10_comparison.ipynb": {
-    "code_cells": 2,
-    "executed_cells": 2,
-    "outputs": 1,
-    "errors": 0,
-    "unexecuted_cells": []
+  "checked": "2026-11-16",
+  "notebooks": {
+    "00_checks.ipynb": {
+      "code_cells": 1,
+      "executed_cells": 1,
+      "output_objects": 1,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "01_eda.ipynb": {
+      "code_cells": 11,
+      "executed_cells": 11,
+      "output_objects": 26,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "02_xgboost.ipynb": {
+      "code_cells": 14,
+      "executed_cells": 14,
+      "output_objects": 23,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "03_keras.ipynb": {
+      "code_cells": 4,
+      "executed_cells": 4,
+      "output_objects": 82,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "04_lightning.ipynb": {
+      "code_cells": 5,
+      "executed_cells": 5,
+      "output_objects": 21,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "05_fastai.ipynb": {
+      "code_cells": 3,
+      "executed_cells": 3,
+      "output_objects": 104,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "06_tabnet.ipynb": {
+      "code_cells": 4,
+      "executed_cells": 4,
+      "output_objects": 15,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "07_imbalance.ipynb": {
+      "code_cells": 7,
+      "executed_cells": 7,
+      "output_objects": 10,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "08_ensemble.ipynb": {
+      "code_cells": 1,
+      "executed_cells": 1,
+      "output_objects": 1,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "09_money.ipynb": {
+      "code_cells": 2,
+      "executed_cells": 2,
+      "output_objects": 8,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    },
+    "10_comparison.ipynb": {
+      "code_cells": 2,
+      "executed_cells": 2,
+      "output_objects": 7,
+      "saved_errors": 0,
+      "unexecuted_cells": []
+    }
   }
 }

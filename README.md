@@ -10,11 +10,11 @@ Detects fraudulent card transactions in a highly imbalanced dataset (about 0.17%
 - PyTorch with TabNet
 - PyTorch with Lightning Flash (or plain Lightning if Flash does not install; see below)
 
-Every model outputs a fraud probability. The main metrics are precision, recall, F1 and PR-AUC at a threshold chosen on the validation split. RMSE, MAE and R2 are also computed between the probability and the 0/1 label. The frameworks are scored on Simplicity, Transparency and Efficacy using a documented rubric (`docs/scoring_rules.md`). Scores remain drafts for team review because the rubric was written after some model results were available.
+Every model outputs a fraud probability. The main metrics are precision, recall, F1 and PR-AUC at a threshold chosen on the validation split. RMSE, MAE and R2 are also computed between the probability and the 0/1 label. The frameworks are scored on Simplicity, Transparency and Efficacy using a documented rubric (`docs/scoring_rules.md`). The team approved the scores on 16 November 2026. The rubric was written after some model results were available, so the scores are not preregistered.
 
 Mini project for Machine Learning with Business Data.
 
-Person 1 handoff: [report PDF](output/credit_card_fraud_report_draft.pdf), [editable report](output/credit_card_fraud_report_draft.docx), [slide text and chart choices](docs/person1_slide_text.md), [verification and remaining actions](docs/person1_completion.md), and [three-minute demo guide](docs/person1_demo.md). The report and slide text are prepared for team review; the framework scores remain draft judgments.
+Final deliverables: [report PDF](output/credit_card_fraud_report_draft.pdf), [editable report](output/credit_card_fraud_report_draft.docx), [team presentation](output/Person2_Results_Presentation.pptx), [demo readiness](docs/demo_readiness.md), and [three-minute demo guide](docs/person1_demo.md). The framework scores are team-approved ordinal judgments.
 
 ## Team and roles
 
@@ -56,7 +56,7 @@ Every decision and the reason for it is logged in `docs/decisions.md`.
 1. Runtime → Change runtime type → **T4 GPU**.
 2. Open a notebook from GitHub: File → Open notebook → GitHub tab → `VanshSharmaPES/credit-card-fraud-detection`.
 3. Run the setup cell. It clones the repo into `/content/credit-card-fraud-detection` if needed, installs `requirements/base.txt` plus that framework's file, and runs `src/data.py`.
-4. `01_eda`, `02_xgboost` and `07_imbalance` clone this public repository without a GitHub token. A fresh Colab run is still part of the day-before-demo checklist.
+4. `01_eda`, `02_xgboost` and `07_imbalance` clone this public repository without a GitHub token. A fresh Colab run remains a day-before-demo check.
 
 ### On your own machine
 
@@ -139,9 +139,9 @@ Validation and test are never resampled. Files: `results/imbalance/`, `preds/imb
 
 ![Imbalance comparison](figures/imbalance_comparison.png)
 
-Simplicity / Transparency / Efficacy scores: draft values are in `results/model_scores_draft.csv`; review the rubric and assumptions as a team before treating them as final.
+Simplicity / Transparency / Efficacy scores: team-approved values and evidence are in `results/model_scores.csv` (approved 16 November 2026). The rubric is retrospective and the ratings are ordinal judgments.
 
-**Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`); plain PyTorch Lightning was used. Flash and fresh Colab execution have not been verified. Local GPU reproduction of the Person 1 notebooks passed.
+**Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`), so the project uses plain PyTorch Lightning. A fresh isolated CPU run of the Lightning notebook passed on 16 November 2026. Verification results for all neural notebooks are in `results/verification/2026-11-16/`; fresh Colab execution remains a day-before-demo check.
 
 Person 2's original results and caveats are retained as a historical record in [`docs/person2_results.md`](docs/person2_results.md). Current ensemble metrics in `results/ensemble.json` reflect the refreshed ensemble. Presentation support and updated figures are in `docs/person3_presentation_notes.md` and `figures/`.
 

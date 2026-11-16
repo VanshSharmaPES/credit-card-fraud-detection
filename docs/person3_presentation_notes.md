@@ -19,8 +19,8 @@ These notes use the refreshed outputs in results/ and figures/. The existing Per
 
 ## Slide 10: Framework scores
 
-- Show results/model_scores_draft.csv.
-- Scores are drafts under a rubric written after results were already available. Obtain team agreement before presenting them as final.
+- Show results/model_scores.csv.
+- Scores were approved by the team on 16 November 2026 under a retrospective rubric; present them as ordinal judgments.
 - Explain the evidence for each dimension rather than treating the ordinal scores as measurements.
 
 ## Slide 11: Model explanations
