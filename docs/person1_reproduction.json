@@ -1,0 +1,166 @@
+{
+  "python": "3.14.10 (main, Oct 26 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+  "notebooks": {
+    "01_eda": {
+      "status": "passed",
+      "seconds": 28.76,
+      "code_cells": 11,
+      "execution_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "png_outputs": 6
+    },
+    "02_xgboost": {
+      "status": "passed",
+      "seconds": 34.39,
+      "code_cells": 14,
+      "execution_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "png_outputs": 3
+    },
+    "07_imbalance": {
+      "status": "passed",
+      "seconds": 31.52,
+      "code_cells": 7,
+      "execution_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "png_outputs": 1
+    }
+  },
+  "metric_comparisons": {
+    "results/xgboost.json": {
+      "matches_within_1e-10": false,
+      "differences": {
+        "rmse": {
+          "saved": 0.02032329432979654,
+          "rerun": 0.02032329319326567
+        },
+        "mae": {
+          "saved": 0.00073706793093752,
+          "rerun": 0.0007370669863274131
+        },
+        "r2": {
+          "saved": 0.7528688242369768,
+          "rerun": 0.7528688518773975
+        }
+      }
+    },
+    "results/imbalance/imb_a_none.json": {
+      "matches_within_1e-10": false,
+      "differences": {
+        "threshold": {
+          "saved": 0.253913551568985,
+          "rerun": 0.25391411781311035
+        },
+        "rmse": {
+          "saved": 0.019112355452060446,
+          "rerun": 0.01911235464085506
+        },
+        "r2": {
+          "saved": 0.7814414758252732,
+          "rerun": 0.7814414943782818
+        }
+      }
+    },
+    "results/imbalance/imb_b_weight.json": {
+      "matches_within_1e-10": false,
+      "differences": {
+        "rmse": {
+          "saved": 0.02032329432979654,
+          "rerun": 0.02032329319326567
+        },
+        "mae": {
+          "saved": 0.00073706793093752,
+          "rerun": 0.0007370669863274131
+        },
+        "r2": {
+          "saved": 0.7528688242369768,
+          "rerun": 0.7528688518773975
+        }
+      }
+    },
+    "results/imbalance/imb_c_smote.json": {
+      "matches_within_1e-10": false,
+      "differences": {
+        "roc_auc": {
+          "saved": 0.9804378424127784,
+          "rerun": 0.980437749507836
+        },
+        "r2": {
+          "saved": 0.689269888350101,
+          "rerun": 0.6892698907068473
+        }
+      }
+    },
+    "results/imbalance/imb_d_undersample.json": {
+      "matches_within_1e-10": false,
+      "differences": {
+        "rmse": {
+          "saved": 0.15014059764341076,
+          "rerun": 0.1501405970759733
+        },
+        "mae": {
+          "saved": 0.06423118374719194,
+          "rerun": 0.06423118344558627
+        },
+        "r2": {
+          "saved": -12.48762871557867,
+          "rerun": -12.487628613629086
+        }
+      }
+    }
+  },
+  "prediction_files_identical": {
+    "preds/xgboost_test.csv": false,
+    "preds/xgboost_val.csv": false,
+    "preds/imbalance/imb_a_none_test.csv": false,
+    "preds/imbalance/imb_a_none_val.csv": false,
+    "preds/imbalance/imb_b_weight_test.csv": false,
+    "preds/imbalance/imb_b_weight_val.csv": false,
+    "preds/imbalance/imb_c_smote_test.csv": false,
+    "preds/imbalance/imb_c_smote_val.csv": false,
+    "preds/imbalance/imb_d_undersample_test.csv": false,
+    "preds/imbalance/imb_d_undersample_val.csv": false
+  },
+  "processed_split_hashes": {
+    "test.csv": "0af29bbb67ec9b1d14a5bb198b11f616af17afbe477e0e5339286aed5b5ec0f6",
+    "train.csv": "f52137f11a6ef58baf9addc9b8702757947c7730a9ca6a11e55fcbf93fb35cc6",
+    "val.csv": "3cadf4fd5d387a6ebf512ebd745f680a2482e9f1a97230c25892024156bf5a2e"
+  },
+  "all_reported_metrics_match_at_four_decimals": true,
+  "largest_numeric_metric_difference": 5.662441253662109e-07,
+  "rerun_hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "checked_date": "2026-11-16",
+  "reference": "Official repository CPU artifacts, compared with an isolated GPU rerun after public-clone setup changes."
+}
