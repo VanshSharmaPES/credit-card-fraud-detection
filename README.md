@@ -14,13 +14,15 @@ Every model outputs a fraud probability. The main metrics are precision, recall,
 
 Mini project for Machine Learning with Business Data.
 
+Person 1 handoff: [report PDF](output/credit_card_fraud_report_draft.pdf), [editable report](output/credit_card_fraud_report_draft.docx), [slide text and chart choices](docs/person1_slide_text.md), [verification and remaining actions](docs/person1_completion.md), and [three-minute demo guide](docs/person1_demo.md). The report and slide text are prepared for team review; the framework scores remain draft judgments.
+
 ## Team and roles
 
 | Person | Name | Role |
 |---|---|---|
 | 1 | Vansh Sharma ([VanshSharmaPES](https://github.com/VanshSharmaPES)) | Data pipeline, EDA, XGBoost, imbalance experiment, README, decisions log |
-| 2 | Vidhwath ([vidhwaths28](https://github.com/vidhwaths28)) | `src/evaluate.py`, Keras, Lightning / Flash, combined model, PPT |
-| 3 | [yakshithn91-afk](https://github.com/yakshithn91-afk) | Scoring rules, `src/cost.py`, fastai, TabNet, money-based threshold, comparison; [deliverables and evidence](docs/person3_results_guide.md) |
+| 2 | Vidhwath S ([vidhwaths28](https://github.com/vidhwaths28)) | `src/evaluate.py`, Keras, Lightning / Flash, combined model, PPT |
+| 3 | [Yakshith Naidu](https://github.com/yakshithn91-afk) | Scoring rules, `src/cost.py`, fastai, TabNet, money-based threshold, comparison; [deliverables and evidence](docs/person3_results_guide.md) |
 
 ## Dataset
 
@@ -54,7 +56,7 @@ Every decision and the reason for it is logged in `docs/decisions.md`.
 1. Runtime → Change runtime type → **T4 GPU**.
 2. Open a notebook from GitHub: File → Open notebook → GitHub tab → `VanshSharmaPES/credit-card-fraud-detection`.
 3. Run the setup cell. It clones the repo into `/content/credit-card-fraud-detection` if needed, installs `requirements/base.txt` plus that framework's file, and runs `src/data.py`.
-4. `01_eda` reads a GitHub token named `GH_TOKEN` from Colab Secrets (the key icon in the left sidebar). Add it there and allow notebook access. Never paste a token into a cell.
+4. `01_eda`, `02_xgboost` and `07_imbalance` clone this public repository without a GitHub token. A fresh Colab run is still part of the day-before-demo checklist.
 
 ### On your own machine
 
@@ -96,7 +98,7 @@ Notebooks `02`–`07` write `results/NAME.json`, `preds/NAME_val.csv`, `preds/NA
 
 ## Results
 
-All numbers are on the test split, at the threshold chosen on validation, copied from `results/*.json`. Every run is on CPU (XGBoost: AMD Ryzen 5 5600H; Keras, Lightning: Apple Silicon ARM64). No GPU run was done. Each JSON file also has the threshold, confusion counts, hardware and notes.
+All numbers are on the test split, at the threshold chosen on validation, copied from `results/*.json`. Every run is on CPU (XGBoost: AMD Ryzen 5 5600H; Keras, Lightning: Apple Silicon ARM64). These are the official CPU artifacts. A later local GPU reproduction of the Person 1 notebooks matched the displayed metrics to four decimal places; it did not replace them. Each JSON file also has the threshold, confusion counts, hardware and notes.
 
 | Framework | Precision | Recall | F1 | PR-AUC | ROC-AUC | RMSE | MAE | R2 | Train (s) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -139,7 +141,7 @@ Validation and test are never resampled. Files: `results/imbalance/`, `preds/imb
 
 Simplicity / Transparency / Efficacy scores: draft values are in `results/model_scores_draft.csv`; review the rubric and assumptions as a team before treating them as final.
 
-**Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`); plain PyTorch Lightning was used. Flash and Colab/GPU runs have not been verified.
+**Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`); plain PyTorch Lightning was used. Flash and fresh Colab execution have not been verified. Local GPU reproduction of the Person 1 notebooks passed.
 
 Person 2's original results and caveats are retained as a historical record in [`docs/person2_results.md`](docs/person2_results.md). Current ensemble metrics in `results/ensemble.json` reflect the refreshed ensemble. Presentation support and updated figures are in `docs/person3_presentation_notes.md` and `figures/`.
 
@@ -160,7 +162,7 @@ credit-card-fraud-detection/
 ├── models/              # saved trained models
 ├── figures/             # every chart used in the report and PPT
 ├── docs/                # decisions, scoring rubric, results, presentation support and viva preparation
-├── output/              # presentation files
+├── output/              # report and presentation files
 ├── requirements/        # base.txt plus one file per framework
 └── data/                # created by src/data.py, never committed
 ```

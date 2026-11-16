@@ -1,0 +1,97 @@
+{
+  "00_checks.ipynb": {
+    "code_cells": 1,
+    "executed_cells": 1,
+    "outputs": 1,
+    "errors": 0,
+    "unexecuted_cells": []
+  },
+  "01_eda.ipynb": {
+    "code_cells": 11,
+    "executed_cells": 11,
+    "outputs": 26,
+    "errors": 0,
+    "unexecuted_cells": []
+  },
+  "02_xgboost.ipynb": {
+    "code_cells": 14,
+    "executed_cells": 14,
+    "outputs": 23,
+    "errors": 0,
+    "unexecuted_cells": []
+  },
+  "03_keras.ipynb": {
+    "code_cells": 4,
+    "executed_cells": 0,
+    "outputs": 0,
+    "errors": 0,
+    "unexecuted_cells": [
+      2,
+      3,
+      5,
+      7
+    ]
+  },
+  "04_lightning.ipynb": {
+    "code_cells": 4,
+    "executed_cells": 0,
+    "outputs": 0,
+    "errors": 0,
+    "unexecuted_cells": [
+      2,
+      4,
+      6,
+      8
+    ]
+  },
+  "05_fastai.ipynb": {
+    "code_cells": 3,
+    "executed_cells": 2,
+    "outputs": 2,
+    "errors": 0,
+    "unexecuted_cells": [
+      2
+    ]
+  },
+  "06_tabnet.ipynb": {
+    "code_cells": 4,
+    "executed_cells": 3,
+    "outputs": 4,
+    "errors": 0,
+    "unexecuted_cells": [
+      2
+    ]
+  },
+  "07_imbalance.ipynb": {
+    "code_cells": 7,
+    "executed_cells": 7,
+    "outputs": 10,
+    "errors": 0,
+    "unexecuted_cells": []
+  },
+  "08_ensemble.ipynb": {
+    "code_cells": 1,
+    "executed_cells": 0,
+    "outputs": 0,
+    "errors": 0,
+    "unexecuted_cells": [
+      1
+    ]
+  },
+  "09_money.ipynb": {
+    "code_cells": 2,
+    "executed_cells": 1,
+    "outputs": 1,
+    "errors": 0,
+    "unexecuted_cells": [
+      2
+    ]
+  },
+  "10_comparison.ipynb": {
+    "code_cells": 2,
+    "executed_cells": 2,
+    "outputs": 1,
+    "errors": 0,
+    "unexecuted_cells": []
+  }
+}

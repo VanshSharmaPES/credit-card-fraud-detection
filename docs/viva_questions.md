@@ -48,6 +48,8 @@ Lightning organizes the PyTorch training loop, validation, logging and callbacks
 ### What does a SHAP value mean?
 A SHAP value attributes part of one model prediction to a feature relative to a reference prediction. A positive value pushes the model output toward fraud and a negative value pushes it away, for the chosen output scale. It describes model behavior, not causation.
 
+For our XGBoost explanation, the baseline plus the SHAP contributions gives log-odds, not probability. Applying the logistic function converts that sum to a probability. The example is validation row 541, a correctly caught fraud with probability 0.9999 at threshold 0.9394. The summary uses 2,000 validation rows containing only three frauds, so it is not a survey of all fraud cases.
+
 ### How were the three framework scores made?
 Simplicity uses install effort, training/prediction code size and configuration; Transparency uses available explanation methods; Efficacy uses the test PR-AUC gap from the best saved model. The current scores are drafts because the scoring file was added after baseline results already existed and still needs team agreement.
 
