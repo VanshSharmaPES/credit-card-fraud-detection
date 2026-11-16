@@ -33,12 +33,13 @@
     ]
   },
   "04_lightning.ipynb": {
-    "code_cells": 4,
+    "code_cells": 5,
     "executed_cells": 0,
     "outputs": 0,
     "errors": 0,
     "unexecuted_cells": [
       2,
+      3,
       4,
       6,
       8
