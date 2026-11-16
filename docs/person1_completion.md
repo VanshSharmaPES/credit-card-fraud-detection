@@ -44,6 +44,7 @@ The comparison notebook's score-generation section was executed separately and r
 
 - Share the Google Doc link and ensure both teammates can edit. Review and adapt the prepared wording, integrate Person 1's slide text, and agree the subjective scores as a team.
 - Ask Person 2 to save the executed Keras and Lightning notebooks, and the ensemble notebook. Their repository notebooks currently lack saved execution outputs. fastai, TabNet and money notebooks have saved result outputs but unexecuted setup cells. Their model result files are present; that does not prove those notebook files were run top to bottom.
+- The Lightning notebook has a concrete additional blocker: its dependency installation, imports and data-loading source is stored in a Markdown cell (cell index 3). Its owner needs to restore that as executable setup and run the notebook in the isolated Lightning environment before claiming a clean run.
 - Read the full report and all viva answers, resolve any new review comments, and rehearse the actual three-minute segment with a timer.
 - Perform the fresh Colab and physical backup/projector checks near the demo date. The demo date has not been provided, so no date-specific rehearsal is claimed or scheduled.
 - Confirm the assembled team deck contains regression metrics, score evidence and cost analysis, then copy the approved deck into the offline pack. Person 1's text is prepared; the existing Person 2 deck is not certified as the final integrated presentation.
