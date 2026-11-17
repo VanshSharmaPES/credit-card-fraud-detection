@@ -25,7 +25,7 @@ class FraudModule(L.LightningModule):
  def configure_optimizers(self): return torch.optim.Adam(self.parameters(),lr=.001)
 
 def main():
- L.seed_everything(42,workers=True); Xtr,ytr,Xv,yv,Xte,yte,ridv,_,ridte,_=load_splits(); names=list(Xtr.columns)
+ L.seed_everything(42,workers=True); Xtr,ytr,Xv,yv,Xte,yte,ridv,ridte,_,_=load_splits(); names=list(Xtr.columns)
  a=lambda x:torch.tensor(np.asarray(x,dtype=np.float32))
  y=lambda x:torch.tensor(np.asarray(x,dtype=np.int64))
  pos=float((ytr==0).sum()/(ytr==1).sum()); tr=DataLoader(TensorDataset(a(Xtr),y(ytr)),batch_size=2048,shuffle=True); va=DataLoader(TensorDataset(a(Xv),y(yv)),batch_size=2048)

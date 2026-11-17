@@ -1,4 +1,4 @@
-# Demo readiness — 16 November 2026
+# Demo readiness — 17 November 2026
 
 The repository is prepared for the tentative 17 November 2026 demo. The exact time is still unconfirmed.
 
@@ -7,7 +7,7 @@ The repository is prepared for the tentative 17 November 2026 demo. The exact ti
 - Corrected 18-slide presentation, including current metrics, team names, EDA wording, RMSE/MAE/R2, current ensemble members, amount units, hardware, and a valid demo command.
 - Twelve-page report with a title page, references, repository link, captions, and dynamic page numbers beginning after the title page.
 - Saved outputs in all eleven notebooks. Every code cell has an execution count and no notebook contains a saved error output. Cells that normally produce no visible output remain valid.
-- Fresh isolated CPU runs of Keras, Lightning, fastai, TabNet, ensemble, money, and comparison. Details and rerun metrics are in `results/verification/2026-11-16/summary.json`.
+- Fresh isolated CPU runs of Keras, Lightning, fastai, TabNet, ensemble, and money. Details and rerun metrics are in `results/verification/2026-11-17/summary.json`.
 - Team-approved Simplicity, Transparency and Efficacy scores in `results/model_scores.csv`.
 - Timed local `src/data.py` check and viva answers in `docs/demo_rehearsal.md`.
 
