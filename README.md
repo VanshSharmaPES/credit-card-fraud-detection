@@ -141,7 +141,7 @@ Validation and test are never resampled. Files: `results/imbalance/`, `preds/imb
 
 Simplicity / Transparency / Efficacy scores: team-approved values and evidence are in `results/model_scores.csv` (approved 16 November 2026). The rubric is retrospective and the ratings are ordinal judgments.
 
-**Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`), so the project uses plain PyTorch Lightning. A fresh isolated CPU run of the Lightning notebook passed on 16 November 2026. Verification results for all neural notebooks are in `results/verification/2026-11-16/`; fresh Colab execution remains a day-before-demo check.
+**Lightning Flash:** The local Flash install attempt failed (`Cannot import setuptools.build_meta`), so the project uses plain PyTorch Lightning. A fresh isolated CPU run of the Lightning notebook passed on 17 November 2026. Verification results for all neural notebooks are in `results/verification/2026-11-17/`; fresh Colab execution remains a day-before-demo check.
 
 Person 2's original results and caveats are retained as a historical record in [`docs/person2_results.md`](docs/person2_results.md). Current ensemble metrics in `results/ensemble.json` reflect the refreshed ensemble. Presentation support and updated figures are in `docs/person3_presentation_notes.md` and `figures/`.
 

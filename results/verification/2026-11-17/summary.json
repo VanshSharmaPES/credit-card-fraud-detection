@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-17",
+  "python": "3.12.16",
+  "hardware": "AMD Ryzen 5 5600H CPU; two compute threads; GPUs hidden for verification",
+  "published_results": "Top-level results/*.json are frozen published artifacts. Verification reruns do not replace them.",
+  "runs": [
+    {
+      "notebook": "03_keras",
+      "status": "passed",
+      "seconds": 44.16,
+      "published_pr_auc": 0.7102537490794916,
+      "verification_pr_auc": 0.7380379708361576,
+      "published_f1": 0.7872340425531915,
+      "verification_f1": 0.7914438502673797
+    },
+    {
+      "notebook": "04_lightning",
+      "status": "passed",
+      "seconds": 72.0,
+      "published_pr_auc": 0.7576470554998241,
+      "verification_pr_auc": 0.7581131041239888,
+      "published_f1": 0.8333333333333334,
+      "verification_f1": 0.8397790055248618
+    },
+    {
+      "notebook": "05_fastai",
+      "status": "passed",
+      "seconds": 41.38,
+      "published_pr_auc": 0.7377376034319689,
+      "verification_pr_auc": 0.7206254283976985,
+      "published_f1": 0.8397790055248618,
+      "verification_f1": 0.7912087912087912
+    },
+    {
+      "notebook": "06_tabnet",
+      "status": "passed",
+      "seconds": 150.67,
+      "published_pr_auc": 0.6833048675451558,
+      "verification_pr_auc": 0.6923856378504465,
+      "published_f1": 0.7486033519553073,
+      "verification_f1": 0.745945945945946
+    },
+    {
+      "notebook": "08_ensemble",
+      "status": "passed"
+    },
+    {
+      "notebook": "09_money",
+      "status": "passed"
+    }
+  ]
+}
