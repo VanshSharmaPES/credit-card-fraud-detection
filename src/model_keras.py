@@ -11,7 +11,7 @@ from evaluate import evaluate_model,permutation_importance
 
 def main():
  keras.utils.set_random_seed(42)
- Xtr,ytr,Xv,yv,Xte,yte,ridv,_,ridte,_=load_splits(); features=list(Xtr.columns); Xvdf=Xv.copy()
+ Xtr,ytr,Xv,yv,Xte,yte,ridv,ridte,_,_=load_splits(); features=list(Xtr.columns); Xvdf=Xv.copy()
  Xtr=np.asarray(Xtr,dtype='float32'); Xv=np.asarray(Xv,dtype='float32'); Xte=np.asarray(Xte,dtype='float32')
  ytr=np.asarray(ytr,dtype='int32'); yv=np.asarray(yv,dtype='int32'); yte=np.asarray(yte,dtype='int32')
  pos=float((ytr==0).sum()/(ytr==1).sum())
