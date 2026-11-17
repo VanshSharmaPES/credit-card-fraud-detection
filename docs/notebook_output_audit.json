@@ -1,82 +1,131 @@
 {
-  "checked": "2026-11-16",
+  "checked": "2026-11-17",
+  "scan_rules": {
+    "blocked_stream_patterns": [
+      "Traceback",
+      "Error:",
+      "No such file",
+      "ModuleNotFoundError"
+    ],
+    "blocked_output_path_patterns": [
+      "Codex",
+      "handoff"
+    ],
+    "allowed_cpu_fallback_patterns": [
+      "failed call to cuInit",
+      "CUDA_ERROR_NO_DEVICE"
+    ]
+  },
   "notebooks": {
     "00_checks.ipynb": {
       "code_cells": 1,
       "executed_cells": 1,
       "output_objects": 1,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "01_eda.ipynb": {
       "code_cells": 11,
       "executed_cells": 11,
       "output_objects": 26,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "02_xgboost.ipynb": {
       "code_cells": 14,
       "executed_cells": 14,
       "output_objects": 23,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "03_keras.ipynb": {
       "code_cells": 4,
       "executed_cells": 4,
-      "output_objects": 82,
+      "output_objects": 81,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "04_lightning.ipynb": {
       "code_cells": 5,
       "executed_cells": 5,
-      "output_objects": 21,
+      "output_objects": 18,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "05_fastai.ipynb": {
       "code_cells": 3,
       "executed_cells": 3,
       "output_objects": 104,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "06_tabnet.ipynb": {
       "code_cells": 4,
       "executed_cells": 4,
-      "output_objects": 15,
+      "output_objects": 14,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "07_imbalance.ipynb": {
       "code_cells": 7,
       "executed_cells": 7,
       "output_objects": 10,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "08_ensemble.ipynb": {
       "code_cells": 1,
       "executed_cells": 1,
-      "output_objects": 1,
+      "output_objects": 2,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "09_money.ipynb": {
       "code_cells": 2,
       "executed_cells": 2,
-      "output_objects": 8,
+      "output_objects": 7,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     },
     "10_comparison.ipynb": {
       "code_cells": 2,
       "executed_cells": 2,
       "output_objects": 7,
       "saved_errors": 0,
-      "unexecuted_cells": []
+      "unexecuted_cells": [],
+      "stream_failure_matches": 0,
+      "output_path_matches": 0,
+      "allowed_cpu_fallback_lines": 0
     }
   }
 }
